@@ -42,22 +42,7 @@ jobs:
          echo "$iterationn"
          echo "VITERATION=$iterationn" >> $GITHUB_OUTPUT
 
-  job2:
-  
-    name: values stored 
-    needs: job1
-    runs-on: ubuntu-latest
-    env:
-          VUSERSSS: ${{ needs.job1.outputs.VUSERSSS }}
-          VITERATION: ${{ needs.job1.outputs.VITERATION }}
-    steps:
 
-         - name: values
-         - uses: peter-evans/repository-dispatch@v1
-         - with:
-            token: ${{ secrets.PAT_TOKEN }}
-            event-type: my-event
-            client-payload: '{"VUSERSSS": "${{ env.VUSERSSS }}", "VITERATION": "${{ env.VITERATION }}"}'
 
   job3:
        name: trigger_sanity_test_workflow

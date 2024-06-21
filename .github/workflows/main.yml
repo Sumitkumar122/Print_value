@@ -46,7 +46,6 @@ jobs:
 
   job3:
        name: trigger_sanity_test_workflow
-       needs: job2
        runs-on: ubuntu-latest
        steps:
         - name: Trigger Sanity Test Work Flow
@@ -54,5 +53,5 @@ jobs:
            curl -X POST \
             -H "Authorization: Bearer ${{ secrets.PAT_TOKEN }}" \
             -H "Accept: application/vnd.github.v3+json" \
-            https://api.github.com/repos/Sumitkumar122actions/workflows/workflows2.yml/dispatches \
+            https://api.github.com/repos/Sumitkumar122/actions/workflows/workflows2.yml/dispatches \
             -d '{"ref":"main"}'
